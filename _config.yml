@@ -1,6 +1,6 @@
 ---
 title: Firdaus
-timezone: UTC
+timezone: Asia/Jakarta
 collections:
   posts:
     title: Posts
@@ -21,3 +21,5 @@ defaults:
   values:
     layout: page
 permalink: pretty
+Field name:
+- 
