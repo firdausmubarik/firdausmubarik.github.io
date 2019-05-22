@@ -4,12 +4,12 @@ permalink: "/about/"
 layout: page
 ---
 
-Some information about you!
+Hai, I am Firdaus!
 
 ### More Information
 
-A place to include any other types of information that you'd like to include about yourself.
+Its really simple to describe me: A nihilis that want to leave a dent in this world before the end.
 
 ### Contact me
 
-[email@domain.com](mailto:email@domain.com)
+firausmubarik ###at### gmail dot com
