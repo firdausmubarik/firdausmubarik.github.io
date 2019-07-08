@@ -5,23 +5,38 @@ backend:
   branch: master
   site_domain: hungry-carson-8554f0.netlify.com
 
-publish_mode: "editorial_workflow"
+publish_mode: editorial_workflow
 
-media_folder: "wp-content/uploads"
+media_folder: "images" # Media files will be stored in the repo under images
+public_folder: "/images" # The src attribute for uploaded media will begin with /images
 
-media_library:
-  name: uploadcare
-  
-collections: # A list of collections the CMS should be able to edit
-  - name: "post" # Used in routes, ie.: /admin/collections/:slug/edit
-    label: "Post" # Used in the UI, ie.: "New Post"
-    folder: "_posts" # The path to the folder where the documents are stored
-    create: true # Allow users to create new documents in this collection
+collections:
+  - name: "post"
+    label: "Post"
+    folder: "_posts"
+    create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
-    fields: # The fields each document in this collection have
-      - label: "Title"
-        name: "title"
-        widget: "string"
-        tagname: "h1"
-      - {label: "Body", name: "body", widget: "markdown"}
----
+    fields:
+      - {label: "Type", name: "type", widget: "hidden", default: "post"}
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "SEO Title", name: "seotitle", widget: "string"}
+      - {label: "Author", name: "author", widget: "string"}
+      - {label: "Description", name: "description", widget: "string", required: false}
+      - {label: "OG Image", name: "headerimage", widget: "string", required: false}
+      - {label: "Updated Date", name: "updated", widget: "string", required: false}
+      - {label: "Body", name: "body", widget: "markdown", required: false}
+      - {label: "Tags", name: "tags", widget: "string"}
+      - {label: "URL", name: "url", widget: "string"}
+
+  - name: "page"
+    label: "Page"
+    folder: "_pages"
+    create: true
+    slug: ".md"
+    fields:
+      - {label: "Type", name: "type", widget: "hidden", default: "page"}
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "SEO Title", name: "seotitle", widget: "string"}
+      - {label: "Description", name: "description", widget: "string", required: false}
+      - {label: "URL", name: "url", widget: "string"}
+      - {label: "Body", name: "body", widget: "markdown", required: false}
