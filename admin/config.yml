@@ -5,7 +5,13 @@ backend:
   branch: master
   site_domain: hungry-carson-8554f0.netlify.com
 
+publish_mode: "editorial_workflow"
+
 media_folder: "images/uploads"
+media_library:
+  name: uploadcare
+  
+
 
 collections: # A list of collections the CMS should be able to edit
   - name: "post" # Used in routes, ie.: /admin/collections/:slug/edit
