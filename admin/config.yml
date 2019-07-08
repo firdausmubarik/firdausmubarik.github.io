@@ -1,7 +1,8 @@
 ---
 backend:
-  name: github
-  repo: firdausmubarik/firdausmubarik.github.io
+  name: git-gateway
+#  name: github
+#  repo: firdausmubarik/firdausmubarik.github.io
 
 
 media_folder: "wp-content/uploads" # Folder where user uploaded files should go
