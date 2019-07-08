@@ -1,3 +1,4 @@
+---
 backend:
   name: github
   repo: firdausmubarik/firdausmubarik.github.io
@@ -17,3 +18,4 @@ collections:
       - {label: "Publish Date", name: "date", widget: "datetime"}
       - {label: "Tags", name: "tags", widget: "list"}
       - {label: "Body", name: "body", widget: "markdown"}
+---
