@@ -2,19 +2,44 @@
 backend:
   name: github
   repo: firdausmubarik/firdausmubarik.github.io
-  branch: master
-  site_domain: hungry-carson-8554f0.netlify.com
 
-publish_mode: editorial_workflow
 
-media_folder: "images" # Media files will be stored in the repo under images
-public_folder: "/images" # The src attribute for uploaded media will begin with /images
+media_folder: "wp-content/uploads" # Folder where user uploaded files should go
 
-collections:
-  - name: "blog"      # Used in routes, e.g., /admin/collections/blog
-    label: "Blog"     # Used in the UI
-    folder: "_posts"  # The path to the folder where the documents are stored
-    create: true      # Allow users to create new documents in this collection
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
-    extension: "markdown" # Add this is you use a file extension other than .md
----
+# publish_mode: editorial_workflow # Enable drafts
+
+collections: # A list of collections the CMS should be able to edit
+  # POSTS
+  - name: "post" # Used in routes, ie.: /admin/collections/:slug/edit
+    label: "Post" # Used in the UI, ie.: "New Post"
+    folder: "_posts" # The path to the folder where the documents are stored
+    sort: "date:desc" # Default is title:asc
+    create: true # Allow users to create new documents in this collection
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields: # The fields each document in this collection have
+      - {label: "Layout", name: "layout", widget: "hidden", default: "post"}
+      - {label: "Title", name: "title", widget: "string", tagname: "h1"}
+      - label: "Author"
+        name: "author"
+        widget: "select"
+        options:
+          - { label: "Dan Urbanowicz", value: "dan_urbanowicz" }
+          - { label: "John Doe", value: "john_doe" }
+      - {label: "Publish Date", name: "date", widget: "datetime", format: "YYYY-MM-DD HH:mm:ss"}
+      - {label: "Intro Paragraph", name: "intro_paragraph", widget: "markdown", required: false}
+      - {label: "Body", name: "body", widget: "markdown", required: false}
+      - {label: "Categories", name: "categories", widget: "string", required: false}
+    # PAGES
+  - name: "page"
+    label: "Page"
+    folder: "pages"
+    sort: "title:asc"
+    create: false
+    slug: "{{slug}}"
+    fields:
+      - {label: "Layout", name: "layout", widget: "hidden", default: "page"}
+      - {label: "Title", name: "title", widget: "string", tagname: "h1"}
+      - {label: "Permalink", name: "permalink", widget: "hidden"}
+      - {label: "Section", name: "section", widget: "hidden", default: "{{name}}"}
+      - {label: "Intro Paragraph", name: "intro_paragraph", widget: "markdown", required: false}
+      - {label: "Body", name: "body", widget: "markdown", required: false}
