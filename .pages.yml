@@ -1,0 +1,14 @@
+media:
+  folder: images
+  image_path: /images
+
+content:
+  - name: Posts
+    path: _posts
+    type: collection
+    fields:
+      - name: title
+        type: string
+      - name: date
+        type: datetime
+ 
