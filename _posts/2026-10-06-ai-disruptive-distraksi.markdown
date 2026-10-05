@@ -1,6 +1,7 @@
 ---
 title: "AI : Disruptive, Distraksi"
 author: firdausmubarik
+slug: ai-distruptive-distraksi
 ---
 Apakah perkembangan AI yang terjadi saat ini akan menjadi sebuah distruptive dalam kehidupan kita sehari-hari? Ataukah ia hanyalah distraksi dari apa yang seharusnya kita bangun dalam kehidupan ini?  
   
