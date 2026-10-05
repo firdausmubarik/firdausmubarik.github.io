@@ -1,14 +1,55 @@
 media:
-  folder: images
-  image_path: /images
+  - name: images
+    input: images/posts
+    output: /images/posts
+    extensions: [png, jpg, webp]
 
 content:
-  - name: Posts
-    path: _posts
+  - name: posts
+    label: Posts
     type: collection
+    path: _posts
+    format: yaml-frontmatter
+    filename: "{year}-{month}-{day}-{fields.title}.markdown"
+    media: images
+    view:
+      fields: [title, date]
+      default:
+        sort: date
+        order: desc
     fields:
       - name: title
+        label: Title
         type: string
+        required: true
       - name: date
-        type: datetime
- 
+        label: Date
+        type: date
+        required: true
+      - name: tags
+        label: Tags
+        type: select
+        list: true
+        required: false
+        options:
+          values:
+            - politics
+            - freedom
+            - tech
+      - name: categories
+        label: Categories
+        type: select
+        list: true
+        required: false
+        options:
+          values:
+            - Tech
+            - Freedom
+            - Daily
+            - Hack
+            # ... full list of your categories
+      - name: body
+        label: Content
+        type: rich-text
+        options:
+          media: images
