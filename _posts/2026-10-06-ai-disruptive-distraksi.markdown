@@ -1,5 +1,5 @@
 ---
-title: "AI : Disruptive, Distraksi"
+title: 'AI : Disruptive, Distraksi'
 author: firdausmubarik
 slug: ai-distruptive-distraksi
 ---
